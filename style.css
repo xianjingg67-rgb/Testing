@@ -1,96 +1,79 @@
+/* --- TEMA WARNA UNGU FUTURISTIK --- */
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 html { scroll-behavior: smooth; }
-body { background-color: #050508; color: white; overflow-x: hidden; }
+body { background-color: #08070b; color: white; overflow-x: hidden; }
 
 /* ANIMASI TRANSISI HALAMAN */
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* NAVIGASI MENGAMBANG */
+/* NAVIGASI MENGAMBANG GLASSMORPISHM */
 nav {
     display: flex; justify-content: space-between; align-items: center;
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
     width: 90%; max-width: 1100px; padding: 15px 30px;
-    background: rgba(15, 15, 25, 0.7); backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px;
-    z-index: 1000; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(15, 12, 25, 0.6); backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 50px;
+    z-index: 1000; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 .logo { font-weight: 800; font-size: 1.2rem; color: #fff; }
-.nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { text-decoration: none; color: #94a3b8; font-size: 0.85rem; transition: 0.3s; }
-.nav-links a:hover { color: #38bdf8; text-shadow: 0 0 8px #38bdf8; }
+.nav-links a:hover { color: #a78bfa; text-shadow: 0 0 10px #8b5cf6; }
 
 /* HERO / HOME SECTION */
 section { padding: 120px 10% 60px; min-height: 100vh; }
-.hero-content { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-.hero-text { flex: 1; text-align: left; }
-.greeting { color: #38bdf8; font-weight: 600; margin-bottom: 10px; }
+.greeting { color: #a78bfa; font-weight: 600; margin-bottom: 10px; text-shadow: 0 0 15px rgba(139, 92, 246, 0.5); }
 h1 { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.1; }
-#typing { color: #38bdf8; border-right: 3px solid #38bdf8; animation: blink 0.7s infinite; }
+
+/* ANIMASI MENGETIK UNGU */
+#typing { color: #a78bfa; border-right: 3px solid #8b5cf6; animation: blink 0.7s infinite; }
 @keyframes blink { 50% { border-color: transparent; } }
 
-.hero-desc { color: #94a3b8; max-width: 550px; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
-
-/* SOSIAL MEDIA & TOMBOL (WARNA BIRU) */
-.social-icons-hero { display: flex; gap: 12px; margin-bottom: 25px; }
+/* SOSIAL MEDIA BULAT (UNGU) */
 .icon-circle {
-    width: 40px; height: 40px; background: #38bdf8; color: #050508;
+    width: 40px; height: 40px; 
+    background: #8b5cf6 !important; 
+    color: #fff !important;
     display: flex; align-items: center; justify-content: center;
     border-radius: 50%; text-decoration: none; transition: 0.3s ease;
 }
-.icon-circle:hover { transform: translateY(-5px) scale(1.1); background: #7dd3fc; box-shadow: 0 0 15px #38bdf8; }
-.icon-circle:active { transform: scale(0.9); }
+.icon-circle:hover { transform: translateY(-5px) scale(1.1); background: #7c3aed !important; box-shadow: 0 0 20px #8b5cf6; }
 
-.cta-buttons { display: flex; gap: 15px; }
-.btn-pill {
-    padding: 12px 28px; border-radius: 50px; text-decoration: none;
-    font-size: 0.85rem; font-weight: 600; transition: 0.3s;
+/* TOMBOL PILL (UNGU) */
+.btn-blue, .btn-pill { 
+    background: #8b5cf6 !important; 
+    color: #fff !important; 
+    box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4); 
+    border-radius: 50px;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 600;
 }
-.btn-blue { background: #38bdf8; color: #050508; box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3); }
-.btn-blue:hover { background: #7dd3fc; transform: scale(1.05); box-shadow: 0 0 20px #38bdf8; }
-.btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
-.btn-outline:hover { background: rgba(255,255,255,0.1); transform: scale(1.05); }
+.btn-pill:hover { background: #7c3aed !important; transform: scale(1.05); box-shadow: 0 0 25px #8b5cf6; }
 
-/* HERO IMAGE GLOW BIRU */
-.hero-image img {
-    width: 320px; height: 420px; object-fit: cover; border-radius: 24px;
-    border: 4px solid #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-    transition: 0.5s ease;
-}
-.hero-image img:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(56, 189, 248, 0.4); }
-
-/* ABOUT CARD GLOW BIRU */
+/* ABOUT CARD DENGAN GLOW UNGU (SEPERTI GAMBAR) */
 .about-card {
-    background: #0d0d15; border: 1px solid #1e293b; border-radius: 24px;
-    padding: 50px; display: flex; justify-content: space-between; align-items: center;
-    transition: 0.4s;
+    background: #0d0c12; 
+    border: 1px solid rgba(139, 92, 246, 0.3); 
+    border-radius: 24px;
+    padding: 50px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
 }
-.about-card:hover { border-color: #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.1); }
-.about-title { font-size: 2rem; margin-bottom: 20px; color: #38bdf8; }
-.about-stats { display: flex; gap: 40px; margin-top: 20px; }
-.stat-item h3 { font-size: 2.2rem; color: #fff; }
-.profile-mini-card {
-    background: #1a1a2e; padding: 15px; border-radius: 16px; width: 200px;
-    transform: rotate(3deg); transition: 0.3s; border: 1px solid #334155;
-}
-.profile-mini-card:hover { transform: rotate(0deg) translateY(-10px); }
-.profile-info p { color: #38bdf8; }
+.about-card:hover { border-color: #8b5cf6; box-shadow: 0 0 50px rgba(139, 92, 246, 0.2); }
+.about-title { font-size: 2rem; margin-bottom: 20px; color: #a78bfa; }
+.stat-item h3 { color: #fff; font-size: 2.2rem; }
+.profile-info p { color: #a78bfa; font-weight: bold; }
 
-/* BENTO GALLERY */
-.section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; color: #38bdf8; }
-.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.bento-item { border-radius: 20px; overflow: hidden; background: #161625; height: 250px; transition: 0.4s; }
-.bento-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: 0.4s; }
-.bento-item.wide { grid-column: span 2; }
-.bento-item.tall { grid-row: span 2; height: 520px; }
-.bento-item:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(56, 189, 248, 0.3); }
-.bento-item:hover img { opacity: 1; transform: scale(1.1); }
+/* BENTO GALLERY GLOW */
+.section-title { font-size: 2rem; margin-bottom: 40px; text-align: center; color: #a78bfa; }
+.bento-item:hover { box-shadow: 0 0 30px rgba(139, 92, 246, 0.4); border: 1px solid #8b5cf6; }
 
-@media (max-width: 768px) {
-    .hero-content { flex-direction: column-reverse; text-align: center; }
-    .hero-text { text-align: center; }
-    .social-icons-hero, .cta-buttons { justify-content: center; }
-    .nav-links { display: none; }
-    .about-card { flex-direction: column; padding: 30px; text-align: center; }
-    .about-stats { justify-content: center; }
+/* FOTO PROFIL GLOW */
+.hero-image img {
+    border: 4px solid #8b5cf6; 
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
 }
