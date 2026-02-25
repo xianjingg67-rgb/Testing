@@ -1,99 +1,98 @@
-/* --- BASE STYLES --- */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-html { scroll-behavior: smooth; }
-body { background-color: #050508; color: white; overflow-x: hidden; }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Lukman Al Khakim</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Ikon Media Sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+</head>
+<body>
 
-/* Animasi Muncul (Fade In Up) saat Page Dimuat */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
-    to { opacity: 1; transform: translateY(0); filter: blur(0); }
-}
+    <!-- Navigasi Mengambang Glassmorphism -->
+    <nav>
+        <div class="logo">LUKMAN_AKH</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#project">Projects</a></li>
+            <li><a href="#certificate">Certificate</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-section { 
-    padding: 120px 10% 60px; 
-    min-height: 100vh;
-    animation: fadeInUp 0.8s ease-out forwards; /* Efek saat buka halaman */
-}
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="reveal">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="greeting">"Avoid or just undertake it"</p>
+                    <h1>Hi I'm <span id="typing"></span></h1>
+                    <p class="hero-desc">
+                        Pengembang aplikasi dan web yang berfokus pada desain modern, performa tinggi, dan solusi berbasis teknologi terkini. Berpengalaman membangun aplikasi mobile, website interaktif, serta mengintegrasikan AI untuk masa depan.
+                    </p>
 
-/* --- INTERACTIVE GLOW & SCALE (SAAT DITEKAN) --- */
-.icon-circle, .btn-pill, .bento-item, .about-card, .hero-image img {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-}
+                    <!-- Ikon Sosial Media Bulat Merah -->
+                    <div class="social-icons-hero">
+                        <a href="https://facebook.com" target="_blank" class="icon-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="icon-circle"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="icon-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me" target="_blank" class="icon-circle"><i class="fab fa-whatsapp"></i></a>
+                    </div>
 
-/* Efek Membesar & Menyala saat Ditekan (Click/Active) */
-.icon-circle:active, .btn-pill:active, .bento-item:active, .hero-image img:active {
-    transform: scale(0.95); /* Sedikit mengecil dulu baru membal */
-    filter: brightness(1.2);
-}
+                    <!-- Tombol Pill Style -->
+                    <div class="cta-buttons">
+                        <a href="#gallery" class="btn-pill btn-red">Go to my Gallery</a>
+                        <a href="#contact" class="btn-pill btn-outline">Contact Me</a>
+                    </div>
+                </div>
 
-.icon-circle:hover, .btn-pill:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(225, 29, 72, 0.6); /* Efek Glow Merah */
-}
+                <!-- Foto Profil dengan Efek Glow -->
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com" alt="Profile Photo">
+                </div>
+            </div>
+        </section>
 
-/* --- NAVIGATION --- */
-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1100px; padding: 15px 30px;
-    background: rgba(15, 15, 25, 0.7); backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50px;
-    z-index: 1000; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 1s ease-out;
-}
+        <!-- About Section (Gaya Kartu Ungu-Gelap) -->
+        <section id="about" class="reveal">
+            <div class="about-card">
+                <div class="about-content">
+                    <h2 class="about-title">About Me</h2>
+                    <p class="about-text">
+                        Saya adalah seorang pengembang yang berdedikasi tinggi dalam menciptakan pengalaman digital yang mulus, estetis, dan fungsional.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item"><h3>20+</h3><p>Project Finished</p></div>
+                        <div class="stat-item"><h3>3+</h3><p>Years Experience</p></div>
+                    </div>
+                </div>
+                <!-- Kartu Mini Melayang -->
+                <div class="profile-mini-card">
+                    <img src="https://via.placeholder.com" alt="Mini Profile">
+                    <div class="profile-info">
+                        <h4>Full Stack</h4>
+                        <p>Web Development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-.nav-links a:hover { color: #e11d48; text-shadow: 0 0 10px #e11d48; }
+        <!-- Gallery Section (Bento Grid) -->
+        <section id="gallery" class="reveal">
+            <h2 class="section-title">My Gallery</h2>
+            <div class="bento-grid">
+                <div class="bento-item wide"><img src="https://via.placeholder.com" alt="G1"></div>
+                <div class="bento-item"><img src="https://via.placeholder.com" alt="G2"></div>
+                <div class="bento-item tall"><img src="https://via.placeholder.com" alt="G3"></div>
+                <div class="bento-item"><img src="https://via.placeholder.com" alt="G4"></div>
+            </div>
+        </section>
+    </main>
 
-/* --- HERO SECTION --- */
-.hero-content { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
-.greeting { color: #e11d48; font-weight: bold; text-shadow: 0 0 5px #e11d48; }
-h1 { font-size: 3.5rem; line-height: 1.1; }
-#typing { color: #e11d48; border-right: 3px solid #e11d48; }
-
-/* --- FOTO PROFIL GLOW --- */
-.hero-image img {
-    width: 320px; height: 420px; object-fit: cover; border-radius: 24px;
-    border: 4px solid #e11d48;
-    box-shadow: 0 0 20px rgba(225, 29, 72, 0.2);
-}
-.hero-image img:hover {
-    box-shadow: 0 0 40px rgba(225, 29, 72, 0.5); /* Glow membesar saat hover */
-}
-
-/* --- SOCIAL & BUTTONS --- */
-.icon-circle {
-    width: 42px; height: 42px; background: #e11d48; color: white;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; text-decoration: none;
-}
-
-.btn-pill {
-    padding: 12px 28px; border-radius: 50px; text-decoration: none;
-    font-size: 0.9rem; font-weight: 600; 
-}
-.btn-red { background: #e11d48; color: white; box-shadow: 0 5px 15px rgba(225, 29, 72, 0.3); }
-.btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
-
-/* --- ABOUT CARD GLOW --- */
-.about-card {
-    background: #0d0d15; border: 1px solid #2d1b4e; border-radius: 24px;
-    padding: 50px; display: flex; justify-content: space-between; align-items: center;
-    transition: 0.5s;
-}
-.about-card:hover {
-    border-color: #e11d48;
-    box-shadow: 0 0 30px rgba(225, 29, 72, 0.1);
-}
-
-/* --- GALLERY BENTO --- */
-.bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.bento-item { border-radius: 20px; overflow: hidden; background: #161625; height: 250px; border: 1px solid transparent; }
-.bento-item:hover { border-color: #e11d48; box-shadow: 0 0 25px rgba(225, 29, 72, 0.3); }
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
-    .hero-content { flex-direction: column-reverse; text-align: center; }
-    .nav-links { display: none; }
-}
+    <script src="script.js"></script>
+</body>
+</html>
 
