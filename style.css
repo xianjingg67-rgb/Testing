@@ -1,251 +1,34 @@
-/* Variabel Warna & Font */
-:root {
-    --navy-bg: #030a16;
-    --navy-light: #0b162c;
-    --glow-color: #00d2ff;
-    --text-light: #e2e8f0;
-    --text-muted: #94a3b8;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--navy-bg);
-    color: var(--text-light);
-    overflow-x: hidden;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
-   NAVIGASI MENGAMBANG (LIQUID GLASS STYLE)
-   ========================================================================== */
-nav {
-    position: fixed;
-    top: 25px; /* Jarak melayang dari atas */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1100px;
-    padding: 12px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
+document.addEventListener('DOMContentLoaded', () => {
     
-    /* Efek Kaca Transparan & Smooth Edge */
-    background: rgba(11, 22, 44, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 100px; /* Bentuk Kapsul/Liquid */
+    // 1. Animasi Muncul Saat Scroll (Intersection Observer)
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        threshold: 0.15 
+    });
+
+    reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+    });
+
+
+    // 2. Kontrol Transformasi Kelas Navbar Mengambang (Liquid Glass)
+    const nav = document.querySelector('nav');
     
-    /* Border Kaca dengan Efek Menyala Tipis */
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    
-    /* Bayangan Luar dan Efek Pendaran Bagian Dalam (Inset) */
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.15),
-                0 0 25px rgba(0, 210, 255, 0.05);
-                
-    /* Transisi Halus saat Mengikuti Scroll */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Transformasi Kaca saat Halaman Di-scroll */
-nav.scrolled {
-    top: 12px;
-    width: 82%;
-    background: rgba(3, 10, 22, 0.65);
-    border-color: rgba(0, 210, 255, 0.45);
-    box-shadow: 0 10px 40px rgba(0, 210, 255, 0.15),
-                inset 0 1px 1px rgba(255, 255, 255, 0.1);
-}
-
-.logo {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--text-light);
-    text-shadow: 0 0 10px var(--glow-color);
-    cursor: pointer;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Efek Tombol Cair (Liquid Fill) saat Hover */
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    padding: 8px 18px;
-    font-size: 0.95rem;
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: #fff;
-    background: rgba(0, 210, 255, 0.15);
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3),
-                inset 0 0 8px rgba(0, 210, 255, 0.2);
-    text-shadow: 0 0 5px #fff;
-}
-
-
-/* ==========================================================================
-   LAYOUT UTAMA & KONTEN (Tetap Konsisten)
-   ========================================================================== */
-section {
-    min-height: 100vh;
-    padding: 120px 10% 80px 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-h2.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--glow-color);
-    text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
-    text-align: center;
-}
-
-/* Hero / Home */
-#home {
-    align-items: center;
-    text-align: center;
-}
-
-#home h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: #fff;
-    text-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
-}
-
-#home p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 600px;
-}
-
-/* Content Grid */
-.content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: var(--navy-light);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    transition: 0.4s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    border-color: var(--glow-color);
-    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-}
-
-.card h3 {
-    color: var(--glow-color);
-    margin-bottom: 15px;
-}
-
-/* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    width: 100%;
-    height: 250px;
-    background: var(--navy-light);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid transparent;
-    transition: 0.3s;
-}
-
-.gallery-item:hover {
-    border-color: var(--glow-color);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transition: 0.5s;
-}
-
-.gallery-item:hover img {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Sosial Media */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.social-icons a {
-    color: var(--text-light);
-    font-size: 2.5rem;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    color: var(--glow-color);
-    text-shadow: 0 0 20px var(--glow-color);
-    transform: scale(1.2);
-}
-
-/* Animasi Scroll */
-.reveal {
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsiveness */
-@media (max-width: 768px) {
-    nav {
-        padding: 15px 20px;
-        border-radius: 30px;
-        top: 15px;
-    }
-    .nav-links a {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-    #home h1 {
-        font-size: 2.5rem;
-    }
-}
+    window.addEventListener('scroll', () => {
+        // Jika layar di-scroll lebih dari 40px, ubah wujud navigasi ke mode ringkas
+        if (window.scrollY > 40) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+});
