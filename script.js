@@ -1,49 +1,34 @@
-// --- ANIMASI MENGETIK NAMA ---
-const textToType = "Lukman Al Khakim";
-let i = 0;
-let deleting = false;
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Animasi Muncul Saat Scroll (Intersection Observer)
+    const reveals = document.querySelectorAll('.reveal');
 
-function playTyping() {
-    const target = document.getElementById("typing");
-    if (!target) return;
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, {
+        threshold: 0.15 
+    });
 
-    if (!deleting) {
-        target.innerHTML = textToType.slice(0, i + 1);
-        i++;
-    } else {
-        target.innerHTML = textToType.slice(0, i - 1);
-        i--;
-    }
+    reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+    });
 
-    if (i === textToType.length) {
-        deleting = true;
-        setTimeout(playTyping, 2000); // Jeda saat nama lengkap
-    } else if (i === 0) {
-        deleting = false;
-        setTimeout(playTyping, 500);
-    } else {
-        setTimeout(playTyping, deleting ? 100 : 150);
-    }
-}
 
-// --- ANIMASI SCROLL REVEAL ---
-function revealSections() {
-    const sections = document.querySelectorAll('.reveal');
-    const windowHeight = window.innerHeight;
-    const revealPoint = 150;
-
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < windowHeight - revealPoint) {
-            section.classList.add('active');
+    // 2. Kontrol Transformasi Kelas Navbar Mengambang (Liquid Glass)
+    const nav = document.querySelector('nav');
+    
+    window.addEventListener('scroll', () => {
+        // Jika layar di-scroll lebih dari 40px, ubah wujud navigasi ke mode ringkas
+        if (window.scrollY > 40) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
         }
     });
-}
-
-// --- INISIALISASI ---
-document.addEventListener("DOMContentLoaded", () => {
-    playTyping();
-    revealSections(); // Cek posisi saat pertama kali muat
-    window.addEventListener('scroll', revealSections);
 });
-
